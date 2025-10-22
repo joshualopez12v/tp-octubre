@@ -1,3 +1,8 @@
 CREATE DATABASE tp;
 
 USE tp;
+
+CREATE TABLE alumnos(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  curso INT
+);
