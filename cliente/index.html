@@ -10,10 +10,32 @@
 <body>
 <div class="controls">
  <select onchange="cargarMaterias(event)" id="cursos"></select>
-<select onchange="ca" id=""></select>
-
+<select onchange="cargarLista" id="Materias"></select>  
 </div>
-      
+ <table>
+<thead>
+  <th>id</th>
+  <th>apellido</th>
+  <th>nombre</th>
+  <th>acciones</th>
+</thead>
+<tbody>
+    
+</tbody> 
+ </table>
+ <hr>
+ <input type="date" onchange="changeDate (event)" name="fecha">
+ <table class="registros">
+<thead>
+  <th>orden</th>
+  <th>apellido</th>
+  <th>nombre</th>
+  <th>registros</th> 
+  <th>hora ingreso</th> 
+  <th>hora egreso</th>
+</thead>
+<tbody></tbody>
+</table>
 
     <h1> El tp</h1>
 </body>
