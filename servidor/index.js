@@ -34,13 +34,16 @@ app.get('/api/asistencias/:materia/:fecha', (req, res) => {
   });
 });
 
-
-
+app.post ('/api/alumnos', (req,rs) => { 
+  let query='INSERT INTO alumnos (nombres,apellidos,curso) VALUES';
+  console.log(req.body);
+  let lista = req.body;
+  // aca va el for
   console.log(query);
   conn.query(query, (err, rs) => {
     res.status(200).json({ msg: 'INSERTS OK' });
 
-
+  });
   });
 
 app.put('/api/asistencias/:id', (req, res) => {
