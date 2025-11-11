@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>El tp</h1>
+    div class="controls"
+    <select onchange="cargaMaterias (event)" id="cursos"></select>
+</select>
+<select onchange="caragrListas" id="materias"></select>
+</select>
+</div>   
+<table
+><thead> <th>id</th>
+        <th>apellidos</th>
+         <th>nombre</th>
+        <th>acciones</th>
+</thead>
+</table> 
+<hr>
+<input type="date" onchange="changeDate (event)" name="fecha">
+<table class="registro">
+<thead> <th>orden</th>
+       <th>apellido</th>
+       <th>nombre</th>
+       <th>registro</th>
+      <th>hora ingreso</th>
+      <th>hora egreso</th>
+</thead>
+</table>
+<hr>
+<form class ="loadform" onsubmit="cargarAlumnos (event)">
+<h3>cargar alumnos</h3>
+<select class="cursos" name="curso"></select>
+<textarea name="lista" rows="8"> cols= "40"</textarea>
+<input type="submit" value="cargar">
+
+</form>
+
+    
 </body>
 </html>
+<script src="main.js"></script>
