@@ -38,14 +38,18 @@ app.post ('/api/alumnos', (req,rs) => {
   let query='INSERT INTO alumnos (nombres,apellidos,curso) VALUES';
   console.log(req.body);
   let lista = req.body;
-  // aca va el for
+for (let i=0;i <lista.length;i++) {
+let {nombres,apellidos,curso}=
+lista [i];
+  query+= ('${nombres}', '${apellidos}', '${curso}');
+  if (i=lista.length-1) query+=',';
+}
+
   console.log(query);
   conn.query(query, (err, rs) => {
     res.status(200).json({ msg: 'INSERTS OK' });
-
   });
   });
-
 app.put('/api/asistencias/:id', (req, res) => {
   const { tipo, creado } = req.body;
   const data = [tipo, creado, req.params.id];
