@@ -1,3 +1,87 @@
+function cargarCursos() {
+  fetch('http://localhost:3000/api/cursos')
+    .then(res => res.json())
+    .then(data => {
+      const select = document.querySelector('#cursos');
+        select.innerHTML = '';
+        for (let curso of data) {
+          const option = document.createElement('option');
+          const { anio, division, esp } = curso;
+          option.textContent = `${anio} ${division} ${esp}`;
+          option.value = curso.id;
+          select.append(option);
+
+
+
+        }
+      });
+    }
+    
+    function cargarMaterias(e) {
+      const cursoId = e.target.value;
+      fetch('http://localhost:3000/api/materias/' + cursoId)
+        .then(res => res.json())
+        .then(data => {
+          const select = document.querySelector('#materias');
+          select.innerHTML = '';
+          for (let materia of data) {
+            const option = document.createElement('option');
+            option.textContent = materia.nombre;
+            option.value = materia.id;
+            select.append(option);
+          }
+        });
+    }
+    
+         
+function cargarLista(e) {
+  // alert('id de materia = ' + e.target.value);
+  const materiaId = e.target.value;
+  fetch('http://localhost:3000/api/alumnos/' + materiaId)
+    .then(res => res.json())
+    .then(data => {
+      let tbody = document.querySelector('tbody');
+      tbody.innerHTML = '';
+      const btns = ['P', 'A', 'T', 'RA', 'AP'];
+      for (let alumno of data) {
+        let alumnoid = alumno.id;
+        fetch('http://localhost:3000/api/asistencias/hoy/'+materiaId+'/'+alumnoid)
+          .then(res => res.json())
+          .then(data => {
+          let valor = data[0].tipo;
+          let tr = document.createElement('tr');
+          let aid = document.createElement('td');
+          let nombre = document.createElement('td');
+          let apellido = document.createElement('td');
+          let { id, nombres, apellidos } = alumno;
+          aid.textContent = id;
+          nombre.textContent = nombres;
+          apellido.textContent = apellidos;
+          tr.append(aid, nombre, apellido);
+          let td = document.createElement('td');
+          for (let text of btns) {
+            let button = document.createElement('button');
+            button.textContent = text;
+            button.onclick = handleClick;
+            button.classList.add(`btn-${text}`);
+            if (text == valor) button.classList.add('selected');
+            td.append(button);
+          }
+          tr.append(td);
+          tbody.append(tr);
+        });
+      }
+    });
+}
+
+
+
+
+
+
+
+
+
 function handleClik (event) {
 let row = event.target.parentElement.parentElement;
 let idAlumno = row.children [0].textcontent;
@@ -92,7 +176,7 @@ let datos = {
       fetch ('http://localhost:3000/api/alumnos', options);
        e.target.reset();
 
-       function cargarCursos () {
+      /* function cargarCursos () {
         fetch ('http://localhost:3000/api/cursos')
          then (res.json())
           then (data=> {
@@ -110,7 +194,7 @@ let datos = {
     }        })
                  .catch (err =>alert(err.stack));
   
-            }
+            }*/
              
             function changeDate (e) {
              let date = e.target.value
@@ -141,7 +225,7 @@ let datos = {
 
                 }            
                 
-""
+
 
 
 
