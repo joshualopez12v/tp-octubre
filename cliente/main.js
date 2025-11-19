@@ -39,6 +39,7 @@ function cargarCursos() {
 function cargarLista(e) {
   // alert('id de materia = ' + e.target.value);
   const materiaId = e.target.value;
+  console.log(materiaId);
   fetch('http://localhost:3000/api/alumnos/' + materiaId)
     .then(res => res.json())
     .then(data => {

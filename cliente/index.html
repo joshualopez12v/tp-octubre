@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="controls">   
-    <select onchange="cargaMaterias (event)" id="cursos"></select>
-<select onchange="caragrListas" id="materias"></select>
+    <select onchange="cargarMaterias(event)" id="cursos"></select>
+<select onchange="cargarLista(event)" id="materias"></select>
 </select>
 </div>   
 <table>
@@ -19,6 +19,7 @@
        <th>nombre</th>
         <th>acciones</th>
 </thead>
+<tbody></tbody>
 </table> 
 <hr>
 <input type="date" onchange="changeDate (event)" name="fecha">

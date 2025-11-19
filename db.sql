@@ -43,3 +43,8 @@ CREATE TABLE registros(
 
 INSERT INTO cursos VALUES
   (NULL,4,3,'Computacion',19);
+
+INSERT INTO materias VALUES
+  (NULL,4,'Trini',0,'Proyecto Informatico I',1),
+  (NULL,6,'Trini',0,'base de datos',1),
+  (NULL,9,'de la puente',0,'algoritmos y estructura de datos',1);
