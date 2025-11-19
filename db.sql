@@ -39,3 +39,7 @@ CREATE TABLE registros(
   FOREIGN KEY (alumno) REFERENCES alumnos(id),
   FOREIGN KEY (materia) REFERENCES materias(id)
 );
+
+
+INSERT INTO cursos VALUES
+  (NULL,4,3,'Computacion',19);

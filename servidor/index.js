@@ -13,7 +13,7 @@ app.use (morgan("dev"));
 
 
 
-const connection = mysql.createConnection({
+const conn = mysql.createConnection({
   host: 'localhost',
   database: 'tp',
   user: 'root'
@@ -106,7 +106,7 @@ app.get('/api/materias/:curso', (req, res) => {
 
 
 // esto conecta a la base de datos
-connection.connect(err => {
+conn.connect(err => {
   if (err) throw err;
   console.log('DB conectada');  
 });

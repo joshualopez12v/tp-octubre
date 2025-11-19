@@ -1,3 +1,5 @@
+cargarCursos();
+
 function cargarCursos() {
   fetch('http://localhost:3000/api/cursos')
     .then(res => res.json())
